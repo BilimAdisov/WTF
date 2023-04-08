@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { SDMoks } from "../../app/COMMON/moks/SideBArMoks";
+import { SDMoks } from "../../COMMON/moks/SideBArMoks";
 import { CiMenuBurger } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 export const SideBarComponent = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="side-bar">
       <div className="menu">
@@ -16,7 +18,11 @@ export const SideBarComponent = () => {
           </span>
           <ul className="menu-list">
             {SDMoks.map((elem) => (
-              <li className="menu-item">
+              <li
+                className="menu-item"
+                onClick={() => navigate(`${elem.path}`)}
+                key={elem.name}
+              >
                 <span className="menu-icon">{elem.icon}</span>
                 <h2
                   className={

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { BsFillSunFill, BsMoonStarsFill, BsSearch } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { toggleByTheme } from "../../store/slice/themeSlice";
 
 export const HeaderComponent = () => {
-  const [theme, setTheme] = useState("light");
+  const dispatch = useDispatch();
+  const theme = useSelector((state: RootState) => state.theme.value);
+  console.log(theme);
   return (
     <div className="header">
       <div className="header-wrapper">
@@ -14,13 +19,19 @@ export const HeaderComponent = () => {
             />
           </div>
           <div className="theme">
-            <span className="itheme" onClick={() => setTheme("light")}>
+            <span
+              className="itheme"
+              onClick={() => dispatch(toggleByTheme("light"))}
+            >
               <BsFillSunFill size={20} />
             </span>
             <span
               className={theme === "light" ? "active left" : "active right"}
             ></span>
-            <span className="itheme" onClick={() => setTheme("dark")}>
+            <span
+              className="itheme"
+              onClick={() => dispatch(toggleByTheme("dark"))}
+            >
               <BsMoonStarsFill size={20} />
             </span>
           </div>

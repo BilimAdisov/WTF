@@ -21,12 +21,12 @@ export const SDMoks = [
   {
     name: "music",
     icon: <CiMusicNote1 size={30} />,
-    Path: "/music",
+    path: "/music",
   },
   {
     name: "messenger",
     icon: <CiMail size={30} />,
-    path: "/music",
+    path: "/messenger",
   },
   {
     name: "setting",
@@ -36,6 +36,6 @@ export const SDMoks = [
   {
     name: "creat image",
     icon: <CiImageOn size={30} />,
-    path: "/createImage",
+    path: "/createImg",
   },
 ];
